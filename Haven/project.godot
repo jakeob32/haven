@@ -14,6 +14,11 @@ config/name="Haven"
 config/features=PackedStringArray("4.2", "Mobile")
 config/icon="res://icon.svg"
 
+[display]
+
+window/size/viewport_width=1440
+window/size/viewport_height=2560
+
 [dotnet]
 
 project/assembly_name="Haven"
