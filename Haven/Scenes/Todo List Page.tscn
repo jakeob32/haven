@@ -1,3 +1,16 @@
-[gd_scene format=3 uid="uid://rro04kr7pol4"]
+[gd_scene load_steps=2 format=3 uid="uid://rro04kr7pol4"]
+
+[ext_resource type="Script" path="res://Scenes/Scene Transitions/home_page.gd" id="1_mlbjv"]
 
 [node name="TodoListPage" type="Node2D"]
+
+[node name="home_page" type="Button" parent="."]
+offset_left = 811.0
+offset_top = 1655.0
+offset_right = 1056.0
+offset_bottom = 1913.0
+theme_override_font_sizes/font_size = 50
+text = "home"
+script = ExtResource("1_mlbjv")
+
+[connection signal="pressed" from="home_page" to="home_page" method="_on_pressed"]
