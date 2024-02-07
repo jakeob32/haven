@@ -1,0 +1,55 @@
+[gd_scene load_steps=2 format=3 uid="uid://dyitgwlaa4pk0"]
+
+[ext_resource type="Script" path="res://Scripts/auth.gd" id="1_ixv1s"]
+
+[node name="LoginPage" type="Node2D"]
+script = ExtResource("1_ixv1s")
+
+[node name="email" type="LineEdit" parent="."]
+offset_left = 422.0
+offset_top = 1004.0
+offset_right = 1001.0
+offset_bottom = 1125.0
+theme_override_font_sizes/font_size = 40
+placeholder_text = "email"
+alignment = 1
+
+[node name="password" type="LineEdit" parent="."]
+offset_left = 418.0
+offset_top = 1242.0
+offset_right = 997.0
+offset_bottom = 1363.0
+theme_override_font_sizes/font_size = 40
+placeholder_text = "password"
+alignment = 1
+
+[node name="login_button" type="Button" parent="."]
+offset_left = 540.0
+offset_top = 1453.0
+offset_right = 873.0
+offset_bottom = 1554.0
+theme_override_font_sizes/font_size = 40
+text = "login"
+
+[node name="signup_button" type="Button" parent="."]
+offset_left = 543.0
+offset_top = 1608.0
+offset_right = 876.0
+offset_bottom = 1709.0
+theme_override_font_sizes/font_size = 40
+text = "signup"
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+
+[node name="error_message" type="Label" parent="."]
+offset_left = 175.0
+offset_top = 1781.0
+offset_right = 1256.0
+offset_bottom = 1855.0
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="login_button" to="." method="_on_login_button_pressed"]
+[connection signal="pressed" from="signup_button" to="." method="_on_signup_button_pressed"]
+[connection signal="request_completed" from="HTTPRequest" to="." method="_on_http_request_request_completed"]
