@@ -4,7 +4,7 @@ Description: Contains all Global variables pulled from firebase after user logs 
 Usage: To use variable, type "Global.[VARIABLE NAME]", where [VARIABLE NAME] is the name of the variable :D
 """
 
-extends Node
+extends Control
 
 # might remove these because idk if we really need them
 # btw this is set in the auth.gd file in _on_http_request_request_completed function

@@ -5,13 +5,15 @@
 [node name="TodoListPage" type="Control"]
 layout_mode = 3
 anchors_preset = 0
+offset_right = 1441.0
+offset_bottom = 2557.0
 script = ExtResource("1_b5ndw")
 
 [node name="home_button" type="Button" parent="."]
-offset_left = 1111.0
-offset_top = 111.0
-offset_right = 1356.0
-offset_bottom = 369.0
+offset_left = 1121.0
+offset_top = 57.0
+offset_right = 1371.0
+offset_bottom = 307.0
 theme_override_font_sizes/font_size = 50
 text = "home"
 

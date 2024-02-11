@@ -5,29 +5,33 @@
 [node name="Homepage" type="Control"]
 layout_mode = 3
 anchors_preset = 0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 1440.0
+offset_bottom = 2560.0
 script = ExtResource("1_2tlrs")
 
 [node name="gacha_button" type="Button" parent="."]
-offset_left = 984.0
-offset_top = 2221.0
-offset_right = 1243.0
-offset_bottom = 2474.0
+offset_left = 560.0
+offset_top = 2235.0
+offset_right = 810.0
+offset_bottom = 2485.0
 theme_override_font_sizes/font_size = 50
 text = "gacha"
 
 [node name="todo_button" type="Button" parent="."]
-offset_left = 1076.0
-offset_top = 49.0
-offset_right = 1308.0
-offset_bottom = 284.0
+offset_left = 1109.0
+offset_top = 2253.0
+offset_right = 1359.0
+offset_bottom = 2503.0
 theme_override_font_sizes/font_size = 50
 text = "todo list"
 
 [node name="logout_button" type="Button" parent="."]
-offset_left = 63.0
-offset_top = 36.0
-offset_right = 305.0
-offset_bottom = 269.0
+offset_left = 77.0
+offset_top = 2220.0
+offset_right = 327.0
+offset_bottom = 2470.0
 theme_override_font_sizes/font_size = 50
 text = "log out"
 

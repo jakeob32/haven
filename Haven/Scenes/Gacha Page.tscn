@@ -5,13 +5,15 @@
 [node name="GachaPage" type="Control"]
 layout_mode = 3
 anchors_preset = 0
+offset_right = 1441.0
+offset_bottom = 2562.0
 script = ExtResource("1_d2bh2")
 
 [node name="home_page" type="Button" parent="."]
-offset_left = 149.0
-offset_top = 117.0
-offset_right = 319.0
-offset_bottom = 293.0
+offset_left = 624.0
+offset_top = 2273.0
+offset_right = 874.0
+offset_bottom = 2523.0
 theme_override_font_sizes/font_size = 50
 text = "home"
 
