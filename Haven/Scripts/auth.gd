@@ -3,7 +3,7 @@ File: auth.gd
 Description: Functions to sign up and login on Login Page
 """
 
-extends Node2D
+extends Control
 
 #var webAPIKey = "AIzaSyC5ySHiHVx4MbVVDYNhINL5gr7ta-_C98g"
 #var signupUrl = "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key="
@@ -36,9 +36,6 @@ func _ready():
 	if Firebase.Auth.check_auth_file():
 		$state.text = "Logged in!!!"
 		get_tree().change_scene_to_file("res://Scenes/Homepage.tscn")
-
-func _process(delta):
-	pass
 
 # signup button function: calls loginSignup function with the email and password label input
 func _on_signup_button_pressed():

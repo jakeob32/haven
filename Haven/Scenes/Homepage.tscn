@@ -2,7 +2,9 @@
 
 [ext_resource type="Script" path="res://Scenes/Scene Transitions/Homepage.gd" id="1_2tlrs"]
 
-[node name="Homepage" type="Node2D"]
+[node name="Homepage" type="Control"]
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_2tlrs")
 
 [node name="gacha_button" type="Button" parent="."]

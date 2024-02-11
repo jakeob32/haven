@@ -2,7 +2,9 @@
 
 [ext_resource type="Script" path="res://Scenes/Scene Transitions/Gacha Page.gd" id="1_d2bh2"]
 
-[node name="GachaPage" type="Node2D"]
+[node name="GachaPage" type="Control"]
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_d2bh2")
 
 [node name="home_page" type="Button" parent="."]

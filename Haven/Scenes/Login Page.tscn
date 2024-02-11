@@ -2,7 +2,9 @@
 
 [ext_resource type="Script" path="res://Scripts/auth.gd" id="1_ixv1s"]
 
-[node name="LoginPage" type="Node2D"]
+[node name="LoginPage" type="Control"]
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_ixv1s")
 
 [node name="email" type="LineEdit" parent="."]
