@@ -1,24 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bcbmkw4e7amos"]
 
 [ext_resource type="Script" path="res://Scenes/Scene Transitions/gacha_page.gd" id="1_qwav0"]
-
-[sub_resource type="GDScript" id="GDScript_pu1ak"]
-script/source = "extends Button
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
-
-func _on_todo_button_pressed():
-	get_tree().change_scene_to_file(\"res://Scenes/Todo List Page.tscn\");
-"
+[ext_resource type="Script" path="res://Scenes/Scene Transitions/todo_page.gd" id="2_xjsgw"]
 
 [node name="Homepage" type="Node2D"]
 
@@ -38,7 +21,7 @@ offset_right = 1308.0
 offset_bottom = 284.0
 theme_override_font_sizes/font_size = 50
 text = "todo list"
-script = SubResource("GDScript_pu1ak")
+script = ExtResource("2_xjsgw")
 
 [connection signal="pressed" from="gacha_button" to="gacha_button" method="_on_gacha_button_pressed"]
 [connection signal="pressed" from="todo_button" to="todo_button" method="_on_todo_button_pressed"]
