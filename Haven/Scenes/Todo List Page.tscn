@@ -4,13 +4,13 @@
 
 [node name="TodoListPage" type="Node2D"]
 
-[node name="home_page" type="Button" parent="."]
-offset_left = 811.0
-offset_top = 1655.0
-offset_right = 1056.0
-offset_bottom = 1913.0
+[node name="home_button" type="Button" parent="."]
+offset_left = 1111.0
+offset_top = 111.0
+offset_right = 1356.0
+offset_bottom = 369.0
 theme_override_font_sizes/font_size = 50
 text = "home"
 script = ExtResource("1_mlbjv")
 
-[connection signal="pressed" from="home_page" to="home_page" method="_on_pressed"]
+[connection signal="pressed" from="home_button" to="home_button" method="_on_home_button_pressed"]

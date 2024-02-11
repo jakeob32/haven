@@ -16,13 +16,13 @@ func _process(delta):
 	pass
 
 
-func _on_pressed():
+func _on_todo_button_pressed():
 	get_tree().change_scene_to_file(\"res://Scenes/Todo List Page.tscn\");
 "
 
 [node name="Homepage" type="Node2D"]
 
-[node name="gacha_page" type="Button" parent="."]
+[node name="gacha_button" type="Button" parent="."]
 offset_left = 984.0
 offset_top = 2221.0
 offset_right = 1243.0
@@ -31,7 +31,7 @@ theme_override_font_sizes/font_size = 50
 text = "gacha"
 script = ExtResource("1_qwav0")
 
-[node name="todo_page" type="Button" parent="."]
+[node name="todo_button" type="Button" parent="."]
 offset_left = 1076.0
 offset_top = 49.0
 offset_right = 1308.0
@@ -40,5 +40,5 @@ theme_override_font_sizes/font_size = 50
 text = "todo list"
 script = SubResource("GDScript_pu1ak")
 
-[connection signal="pressed" from="gacha_page" to="gacha_page" method="_on_pressed"]
-[connection signal="pressed" from="todo_page" to="todo_page" method="_on_pressed"]
+[connection signal="pressed" from="gacha_button" to="gacha_button" method="_on_gacha_button_pressed"]
+[connection signal="pressed" from="todo_button" to="todo_button" method="_on_todo_button_pressed"]

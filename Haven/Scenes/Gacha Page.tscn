@@ -5,12 +5,12 @@
 [node name="GachaPage" type="Node2D"]
 
 [node name="home_page" type="Button" parent="."]
-offset_left = 700.0
-offset_top = 1164.0
-offset_right = 870.0
-offset_bottom = 1340.0
+offset_left = 149.0
+offset_top = 117.0
+offset_right = 319.0
+offset_bottom = 293.0
 theme_override_font_sizes/font_size = 50
 text = "home"
 script = ExtResource("1_2e7tr")
 
-[connection signal="pressed" from="home_page" to="home_page" method="_on_pressed"]
+[connection signal="pressed" from="home_page" to="home_page" method="_on_home_button_pressed"]

@@ -10,6 +10,5 @@ func _ready():
 func _process(delta):
 	pass
 
-
-func _on_pressed():
+func _on_home_button_pressed():
 	get_tree().change_scene_to_file("res://Scenes/Homepage.tscn")

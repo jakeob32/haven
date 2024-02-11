@@ -24,7 +24,7 @@ var currency = 0
 var tasks = []
 
 # TaskObject (not shore how this works for firebase; also have no idea how dictionary works for godot lmao)
-var Task = {taskId : 0, name : "", desc: "", cost : 0}
+# var Task = {taskId : 0, name : "", desc: "", cost : 0}
 
 # UserFurniture
 # funiture: int Array of the furnitureIds of items that have been purchased by user
