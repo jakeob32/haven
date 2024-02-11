@@ -41,7 +41,7 @@ text = "signup"
 
 [node name="HTTPRequest" type="HTTPRequest" parent="."]
 
-[node name="error_message" type="Label" parent="."]
+[node name="state" type="Label" parent="."]
 offset_left = 175.0
 offset_top = 1781.0
 offset_right = 1256.0
@@ -52,4 +52,3 @@ vertical_alignment = 1
 
 [connection signal="pressed" from="login_button" to="." method="_on_login_button_pressed"]
 [connection signal="pressed" from="signup_button" to="." method="_on_signup_button_pressed"]
-[connection signal="request_completed" from="HTTPRequest" to="." method="_on_http_request_request_completed"]

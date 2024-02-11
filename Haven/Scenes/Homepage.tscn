@@ -1,9 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://bcbmkw4e7amos"]
+[gd_scene load_steps=2 format=3 uid="uid://bcbmkw4e7amos"]
 
-[ext_resource type="Script" path="res://Scenes/Scene Transitions/gacha_page.gd" id="1_qwav0"]
-[ext_resource type="Script" path="res://Scenes/Scene Transitions/todo_page.gd" id="2_xjsgw"]
+[ext_resource type="Script" path="res://Scenes/Scene Transitions/Homepage.gd" id="1_2tlrs"]
 
 [node name="Homepage" type="Node2D"]
+script = ExtResource("1_2tlrs")
 
 [node name="gacha_button" type="Button" parent="."]
 offset_left = 984.0
@@ -12,7 +12,6 @@ offset_right = 1243.0
 offset_bottom = 2474.0
 theme_override_font_sizes/font_size = 50
 text = "gacha"
-script = ExtResource("1_qwav0")
 
 [node name="todo_button" type="Button" parent="."]
 offset_left = 1076.0
@@ -21,7 +20,15 @@ offset_right = 1308.0
 offset_bottom = 284.0
 theme_override_font_sizes/font_size = 50
 text = "todo list"
-script = ExtResource("2_xjsgw")
 
-[connection signal="pressed" from="gacha_button" to="gacha_button" method="_on_gacha_button_pressed"]
-[connection signal="pressed" from="todo_button" to="todo_button" method="_on_todo_button_pressed"]
+[node name="logout_button" type="Button" parent="."]
+offset_left = 63.0
+offset_top = 36.0
+offset_right = 305.0
+offset_bottom = 269.0
+theme_override_font_sizes/font_size = 50
+text = "log out"
+
+[connection signal="pressed" from="gacha_button" to="." method="_on_gacha_button_pressed"]
+[connection signal="pressed" from="todo_button" to="." method="_on_todo_button_pressed"]
+[connection signal="pressed" from="logout_button" to="." method="_on_logout_button_pressed"]

@@ -1,8 +1,9 @@
 [gd_scene load_steps=2 format=3 uid="uid://cqqqy56km2aj8"]
 
-[ext_resource type="Script" path="res://Scenes/Scene Transitions/home_page.gd" id="1_2e7tr"]
+[ext_resource type="Script" path="res://Scenes/Scene Transitions/Gacha Page.gd" id="1_d2bh2"]
 
 [node name="GachaPage" type="Node2D"]
+script = ExtResource("1_d2bh2")
 
 [node name="home_page" type="Button" parent="."]
 offset_left = 149.0
@@ -11,6 +12,5 @@ offset_right = 319.0
 offset_bottom = 293.0
 theme_override_font_sizes/font_size = 50
 text = "home"
-script = ExtResource("1_2e7tr")
 
-[connection signal="pressed" from="home_page" to="home_page" method="_on_home_button_pressed"]
+[connection signal="pressed" from="home_page" to="." method="_on_home_button_pressed"]

@@ -1,8 +1,9 @@
 [gd_scene load_steps=2 format=3 uid="uid://rro04kr7pol4"]
 
-[ext_resource type="Script" path="res://Scenes/Scene Transitions/home_page.gd" id="1_mlbjv"]
+[ext_resource type="Script" path="res://Scenes/Scene Transitions/Todo List Page.gd" id="1_b5ndw"]
 
 [node name="TodoListPage" type="Node2D"]
+script = ExtResource("1_b5ndw")
 
 [node name="home_button" type="Button" parent="."]
 offset_left = 1111.0
@@ -11,6 +12,5 @@ offset_right = 1356.0
 offset_bottom = 369.0
 theme_override_font_sizes/font_size = 50
 text = "home"
-script = ExtResource("1_mlbjv")
 
-[connection signal="pressed" from="home_button" to="home_button" method="_on_home_button_pressed"]
+[connection signal="pressed" from="home_button" to="." method="_on_home_button_pressed"]

@@ -11,13 +11,14 @@ config_version=5
 [application]
 
 config/name="Haven"
-run/main_scene="res://Scenes/Homepage.tscn"
+run/main_scene="res://Scenes/Login Page.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
 config/icon="res://icon.svg"
 
 [autoload]
 
 Global="*res://Global/Global.gd"
+Firebase="*res://addons/godot-firebase/firebase/firebase.tscn"
 
 [display]
 
@@ -28,6 +29,10 @@ window/stretch/mode="viewport"
 [dotnet]
 
 project/assembly_name="Haven"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/godot-firebase/plugin.cfg")
 
 [rendering]
 
