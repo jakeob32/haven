@@ -10,6 +10,7 @@ offset_bottom = 2557.0
 script = ExtResource("1_b5ndw")
 
 [node name="home_button" type="Button" parent="."]
+layout_mode = 0
 offset_left = 1121.0
 offset_top = 57.0
 offset_right = 1371.0

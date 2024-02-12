@@ -12,6 +12,7 @@ offset_bottom = 2560.0
 script = ExtResource("1_2tlrs")
 
 [node name="gacha_button" type="Button" parent="."]
+layout_mode = 0
 offset_left = 560.0
 offset_top = 2235.0
 offset_right = 810.0
@@ -20,6 +21,7 @@ theme_override_font_sizes/font_size = 50
 text = "gacha"
 
 [node name="todo_button" type="Button" parent="."]
+layout_mode = 0
 offset_left = 1109.0
 offset_top = 2253.0
 offset_right = 1359.0
@@ -28,6 +30,7 @@ theme_override_font_sizes/font_size = 50
 text = "todo list"
 
 [node name="logout_button" type="Button" parent="."]
+layout_mode = 0
 offset_left = 77.0
 offset_top = 2220.0
 offset_right = 327.0

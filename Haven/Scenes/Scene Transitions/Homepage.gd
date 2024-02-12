@@ -10,8 +10,10 @@ func _ready():
 func _process(delta):
 	pass
 
+
 func _on_gacha_button_pressed():
 	get_tree().change_scene_to_file("res://Scenes/Gacha Page.tscn");
+
 
 func _on_todo_button_pressed():
 	get_tree().change_scene_to_file("res://Scenes/Todo List Page.tscn");

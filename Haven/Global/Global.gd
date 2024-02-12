@@ -31,3 +31,10 @@ var tasks = []
 var furniture = []
 
 # FunitureObject (tbd.... whenever task object is figured out lol)
+
+# save data function
+func save_data(COLLECTION_ID: String, data: Dictionary):
+	var auth = Firebase.Auth.auth
+	if auth.localid:
+		var collection: FirestoreCollection = Firebase.Firestore.collection(COLLECTION_ID)
+		var task: FirestoreTask = collection.update(auth.localid, data)

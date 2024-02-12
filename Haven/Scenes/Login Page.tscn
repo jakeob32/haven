@@ -8,6 +8,7 @@ anchors_preset = 0
 script = ExtResource("1_ixv1s")
 
 [node name="email" type="LineEdit" parent="."]
+layout_mode = 0
 offset_left = 422.0
 offset_top = 1004.0
 offset_right = 1001.0
@@ -17,6 +18,7 @@ placeholder_text = "email"
 alignment = 1
 
 [node name="password" type="LineEdit" parent="."]
+layout_mode = 0
 offset_left = 418.0
 offset_top = 1242.0
 offset_right = 997.0
@@ -26,6 +28,7 @@ placeholder_text = "password"
 alignment = 1
 
 [node name="login_button" type="Button" parent="."]
+layout_mode = 0
 offset_left = 540.0
 offset_top = 1453.0
 offset_right = 873.0
@@ -34,6 +37,7 @@ theme_override_font_sizes/font_size = 40
 text = "login"
 
 [node name="signup_button" type="Button" parent="."]
+layout_mode = 0
 offset_left = 543.0
 offset_top = 1608.0
 offset_right = 876.0
@@ -44,6 +48,7 @@ text = "signup"
 [node name="HTTPRequest" type="HTTPRequest" parent="."]
 
 [node name="state" type="Label" parent="."]
+layout_mode = 0
 offset_left = 175.0
 offset_top = 1781.0
 offset_right = 1256.0

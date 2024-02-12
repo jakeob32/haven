@@ -27,6 +27,7 @@ extends Control
 		#print(response.error)
 		#$error_message.text = response.error.message
 
+
 func _ready():
 	Firebase.Auth.login_succeeded.connect(on_login_succeeded)
 	Firebase.Auth.signup_succeeded.connect(on_signup_succeeded)
@@ -37,6 +38,7 @@ func _ready():
 		$state.text = "Logged in!!!"
 		get_tree().change_scene_to_file("res://Scenes/Homepage.tscn")
 
+
 # signup button function: calls loginSignup function with the email and password label input
 func _on_signup_button_pressed():
 	#var url = signupUrl + webAPIKey
@@ -44,6 +46,7 @@ func _on_signup_button_pressed():
 	var password = $password.text
 	Firebase.Auth.signup_with_email_and_password(email, password)
 	#_loginSignup(url, email, password)
+
 
 # login button function: calls loginSignup function with the email and password label input
 func _on_login_button_pressed():
@@ -53,20 +56,24 @@ func _on_login_button_pressed():
 	Firebase.Auth.login_with_email_and_password(email, password)
 	#_loginSignup(url, email, password)
 
+
 func on_login_succeeded(auth):
 	print(auth)
 	Firebase.Auth.save_auth(auth)
 	get_tree().change_scene_to_file("res://Scenes/Homepage.tscn")
+
 
 func on_signup_succeeded(auth):
 	print(auth)
 	Firebase.Auth.save_auth(auth)
 	get_tree().change_scene_to_file("res://Scenes/Homepage.tscn")
 
+
 func on_login_failed(error_code, message):
 	print(error_code)
 	print(message)
 	$state.text = message
+
 
 func on_signup_failed(error_code, message):
 	print(error_code)
