@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scenes/Scene Transitions/Homepage.gd" id="1_2tlrs"]
 
-[node name="Homepage" type="Control"]
+[node name="Home Page" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 2.0

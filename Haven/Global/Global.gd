@@ -18,18 +18,19 @@ var userId = 0
 # UserMoney
 # currency: int of how much money the user currently has
 var currency = 0
+var money_document = "";
 
 # UserTodo
 # tasks: int Array of the taskIds of tasks that have been completed
 var tasks = []
-
+var tasks_document = "";
 # TaskObject (not shore how this works for firebase; also have no idea how dictionary works for godot lmao)
 # var Task = {taskId : 0, name : "", desc: "", cost : 0}
 
 # UserFurniture
 # funiture: int Array of the furnitureIds of items that have been purchased by user
 var furniture = []
-
+var furniture_document = "";
 # FunitureObject (tbd.... whenever task object is figured out lol)
 
 # save data function
@@ -38,3 +39,7 @@ func save_data(COLLECTION_ID: String, data: Dictionary):
 	if auth.localid:
 		var collection: FirestoreCollection = Firebase.Firestore.collection(COLLECTION_ID)
 		var task: FirestoreTask = collection.update(auth.localid, data)
+
+# load data function
+func load_data():
+	pass

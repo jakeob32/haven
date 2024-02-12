@@ -61,6 +61,22 @@ func on_login_succeeded(auth):
 	print(auth)
 	Firebase.Auth.save_auth(auth)
 	get_tree().change_scene_to_file("res://Scenes/Homepage.tscn")
+	
+	if auth.localid:
+		var UserFurniture: FirestoreCollection = Firebase.Firestore.collection("UserFurniture")
+		var furniture_task: FirestoreTask = UserFurniture.get_doc(auth.localid)
+		var furniture_finished_task: FirestoreTask = await furniture_task.task_finished
+		Global.furniture_document = furniture_finished_task.document
+		
+		var UserMoney: FirestoreCollection = Firebase.Firestore.collection("UserMoney")
+		var money_task: FirestoreTask = UserMoney.get_doc(auth.localid)
+		var money_finished_task: FirestoreTask = await money_task.task_finished
+		Global.money_document = money_finished_task.document
+		
+		var UserTodo: FirestoreCollection = Firebase.Firestore.collection("UserTodo")
+		var todo_task: FirestoreTask = UserTodo.get_doc(auth.localid)
+		var todo_finished_task: FirestoreTask = await todo_task.task_finished
+		Global.tasks_document = todo_finished_task.document
 
 
 func on_signup_succeeded(auth):

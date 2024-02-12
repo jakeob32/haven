@@ -13,10 +13,10 @@ script = ExtResource("1_6a28r")
 
 [node name="Home Button" type="Button" parent="."]
 layout_mode = 0
-offset_left = 987.0
-offset_top = 2115.0
-offset_right = 1242.0
-offset_bottom = 2349.0
+offset_left = 93.0
+offset_top = 55.0
+offset_right = 377.0
+offset_bottom = 332.0
 theme_override_font_sizes/font_size = 50
 text = "Home"
 
