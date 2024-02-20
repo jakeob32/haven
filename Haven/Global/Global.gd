@@ -3,35 +3,55 @@ File: Global.gd
 Description: Contains all Global variables pulled from firebase after user logs in
 Usage: To use variable, type "Global.[VARIABLE NAME]", where [VARIABLE NAME] is the name of the variable :D
 """
-
 extends Control
 
-# might remove these because idk if we really need them
-# btw this is set in the auth.gd file in _on_http_request_request_completed function
-var email = ""
-var password = ""
-
-# the following variables are from the backend figma stuff
-# UserID: might set it to this token id that you get from logging in? check rest api docs
-var userId = 0
-
-# UserMoney
-# currency: int of how much money the user currently has
-var currency = 0
-var money_document = "";
-
-# UserTodo
-# tasks: int Array of the taskIds of tasks that have been completed
-var tasks = []
-var tasks_document = "";
-# TaskObject (not shore how this works for firebase; also have no idea how dictionary works for godot lmao)
-# var Task = {taskId : 0, name : "", desc: "", cost : 0}
+# UserID
+var userID = ""
 
 # UserFurniture
-# funiture: int Array of the furnitureIds of items that have been purchased by user
+# furniture: string array representing the names of furniture the user has
 var furniture = []
-var furniture_document = "";
-# FunitureObject (tbd.... whenever task object is figured out lol)
+# placed: boolean array representing whether the furniture at this index has been placed or not 
+var location = []
+var UserFurniture = {
+	"userID" : userID,
+	"furniture" : furniture,
+	"location" : location,
+}
+
+# UserMoney
+# currency: int representing how much money the user has
+var currency = 0
+var UserMoney = {
+	"userID" : userID,
+	"currency" : currency,
+}
+
+# UserTodo
+# tasks: string array representing which tasks the user has
+var tasks = []
+# isComplete: boolean array representing which tasks have been completed
+var isComplete = []
+var UserTodo = {
+	"userID" : userID,
+	"tasks" : tasks,
+	"isComplete" : isComplete,
+}
+
+# get_doc_fields: returns a dictionary with the the given document's fields
+# usage: fields = await Global.get_doc_fields("collection_name", "document_name")
+func get_doc_fields(COLLECTION_ID: String, DOCUMENT_ID: String):
+	var collection: FirestoreCollection = Firebase.Firestore.collection(COLLECTION_ID)
+	var task: FirestoreTask = collection.get_doc(DOCUMENT_ID)
+	var document: FirestoreDocument = await task.get_document
+	return document.doc_fields
+
+# update_doc_fields: puts given fields dictionary into document
+# usage: await update_doc_fields("collection_name", "document_name", fields)
+func update_doc_fields(COLLECTION_ID: String, DOCUMENT_ID: String, fields: Dictionary):
+	var collection: FirestoreCollection = Firebase.Firestore.collection(COLLECTION_ID)
+	var up_task: FirestoreTask = collection.update(DOCUMENT_ID, fields)
+	var document = await up_task.update_document
 
 # save data function
 func save_data(COLLECTION_ID: String, data: Dictionary):
@@ -43,3 +63,5 @@ func save_data(COLLECTION_ID: String, data: Dictionary):
 # load data function
 func load_data():
 	pass
+
+

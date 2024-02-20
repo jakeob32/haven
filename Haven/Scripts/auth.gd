@@ -27,7 +27,6 @@ extends Control
 		#print(response.error)
 		#$error_message.text = response.error.message
 
-
 func _ready():
 	Firebase.Auth.login_succeeded.connect(on_login_succeeded)
 	Firebase.Auth.signup_succeeded.connect(on_signup_succeeded)
@@ -60,27 +59,37 @@ func _on_login_button_pressed():
 func on_login_succeeded(auth):
 	print(auth)
 	Firebase.Auth.save_auth(auth)
-	get_tree().change_scene_to_file("res://Scenes/Homepage.tscn")
+	Global.userID = auth.localid
 	
 	if auth.localid:
-		var UserFurniture: FirestoreCollection = Firebase.Firestore.collection("UserFurniture")
-		var furniture_task: FirestoreTask = UserFurniture.get_doc(auth.localid)
-		var furniture_finished_task: FirestoreTask = await furniture_task.task_finished
-		Global.furniture_document = furniture_finished_task.document
+		Global.UserFurniture = await Global.get_doc_fields("UserFurniture", Global.userID)
+		print(Global.UserFurniture)
 		
-		var UserMoney: FirestoreCollection = Firebase.Firestore.collection("UserMoney")
-		var money_task: FirestoreTask = UserMoney.get_doc(auth.localid)
-		var money_finished_task: FirestoreTask = await money_task.task_finished
-		Global.money_document = money_finished_task.document
+		Global.UserMoney = await Global.get_doc_fields("UserMoney", Global.userID)
+		print(Global.UserMoney)
 		
-		var UserTodo: FirestoreCollection = Firebase.Firestore.collection("UserTodo")
-		var todo_task: FirestoreTask = UserTodo.get_doc(auth.localid)
-		var todo_finished_task: FirestoreTask = await todo_task.task_finished
-		Global.tasks_document = todo_finished_task.document
+		Global.UserTodo = await Global.get_doc_fields("UserTodo", Global.userID)
+		print(Global.UserTodo)
+	
+	get_tree().change_scene_to_file("res://Scenes/Homepage.tscn")
 
 
 func on_signup_succeeded(auth):
 	print(auth)
+	Global.userID = auth.localid
+	
+	var UserFurniture: FirestoreCollection = Firebase.Firestore.collection("UserFurniture")
+	var furniture_task: FirestoreTask = UserFurniture.add(Global.userID, Global.UserFurniture)
+	var furniture_doc = await furniture_task.add_document
+	
+	var UserMoney: FirestoreCollection = Firebase.Firestore.collection("UserMoney")
+	var money_task: FirestoreTask = UserMoney.add(Global.userID, Global.UserMoney)
+	var money_doc = await money_task.add_document
+	
+	var UserTodo: FirestoreCollection = Firebase.Firestore.collection("UserTodo")
+	var todo_task: FirestoreTask = UserTodo.add(Global.userID, Global.UserTodo)
+	var todo_doc = await todo_task.add_document
+	
 	Firebase.Auth.save_auth(auth)
 	get_tree().change_scene_to_file("res://Scenes/Homepage.tscn")
 
