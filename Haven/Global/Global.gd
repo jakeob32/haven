@@ -42,16 +42,3 @@ func update_doc_fields(COLLECTION_ID: String, DOCUMENT_ID: String, fields: Dicti
 	var collection: FirestoreCollection = Firebase.Firestore.collection(COLLECTION_ID)
 	var up_task: FirestoreTask = collection.update(DOCUMENT_ID, fields)
 	var document = await up_task.update_document
-
-# save data function
-func save_data(COLLECTION_ID: String, data: Dictionary):
-	var auth = Firebase.Auth.auth
-	if auth.localid:
-		var collection: FirestoreCollection = Firebase.Firestore.collection(COLLECTION_ID)
-		var task: FirestoreTask = collection.update(auth.localid, data)
-
-# load data function
-func load_data():
-	pass
-
-
