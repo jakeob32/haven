@@ -25,6 +25,6 @@ func _on_logout_button_pressed():
 
 # testing update_doc_fields()
 func _on_button_pressed():
-	Global.furniture = ["abc"]
+	Global.UserFurniture["furniture"].append("abc")
 	Global.update_doc_fields("UserFurniture", Global.userID, Global.UserFurniture)
-	
+

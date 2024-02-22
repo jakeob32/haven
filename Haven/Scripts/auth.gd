@@ -34,7 +34,10 @@ func _ready():
 	Firebase.Auth.signup_failed.connect(on_signup_failed)
 	
 	if Firebase.Auth.check_auth_file():
+		var auth = Firebase.Auth.auth
+		Global.userID = auth.localid
 		$state.text = "Logged in!!!"
+		await load_data()
 		get_tree().change_scene_to_file("res://Scenes/Homepage.tscn")
 
 
@@ -62,14 +65,7 @@ func on_login_succeeded(auth):
 	Global.userID = auth.localid
 	
 	if auth.localid:
-		Global.UserFurniture = await Global.get_doc_fields("UserFurniture", Global.userID)
-		print(Global.UserFurniture)
-		
-		Global.UserMoney = await Global.get_doc_fields("UserMoney", Global.userID)
-		print(Global.UserMoney)
-		
-		Global.UserTodo = await Global.get_doc_fields("UserTodo", Global.userID)
-		print(Global.UserTodo)
+		load_data()
 	
 	get_tree().change_scene_to_file("res://Scenes/Homepage.tscn")
 
@@ -104,3 +100,13 @@ func on_signup_failed(error_code, message):
 	print(error_code)
 	print(message)
 	$state.text = message
+
+func load_data():
+	Global.UserFurniture = await Global.get_doc_fields("UserFurniture", Global.userID)
+	print(Global.UserFurniture)
+	
+	Global.UserMoney = await Global.get_doc_fields("UserMoney", Global.userID)
+	print(Global.UserMoney)
+	
+	Global.UserTodo = await Global.get_doc_fields("UserTodo", Global.userID)
+	print(Global.UserTodo)

@@ -5,37 +5,27 @@ Usage: To use variable, type "Global.[VARIABLE NAME]", where [VARIABLE NAME] is 
 """
 extends Control
 
-# UserID
 var userID = ""
 
 # UserFurniture
-# furniture: string array representing the names of furniture the user has
-var furniture = []
-# placed: boolean array representing whether the furniture at this index has been placed or not 
-var location = []
 var UserFurniture = {
-	"userID" : userID,
-	"furniture" : furniture,
-	"location" : location,
+	"userID" : "",
+	"furniture" : [], # furniture: string array representing the names of furniture the user has
+	"placed" : [], # placed: boolean array representing whether the furniture at this index has been placed or not 
 }
 
 # UserMoney
-# currency: int representing how much money the user has
 var currency = 0
 var UserMoney = {
-	"userID" : userID,
-	"currency" : currency,
+	"userID" : "",
+	"currency" : 0, # currency: int representing how much money the user has
 }
 
 # UserTodo
-# tasks: string array representing which tasks the user has
-var tasks = []
-# isComplete: boolean array representing which tasks have been completed
-var isComplete = []
 var UserTodo = {
-	"userID" : userID,
-	"tasks" : tasks,
-	"isComplete" : isComplete,
+	"userID" : "",
+	"tasks" : [], # tasks: string array representing which tasks the user has
+	"isComplete" : [], # isComplete: boolean array representing which tasks have been completed
 }
 
 # get_doc_fields: returns a dictionary with the the given document's fields
