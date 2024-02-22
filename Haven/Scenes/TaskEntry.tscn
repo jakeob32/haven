@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=3 uid="uid://bsoebcitas4tl"]
+
+[ext_resource type="Texture2D" uid="uid://2selq12fp4q0" path="res://addons/godot-firebase/icon.svg" id="1_us7lg"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_6157q"]
+font_size = 70
+
+[sub_resource type="LabelSettings" id="LabelSettings_4ut2m"]
+font_size = 120
+
+[sub_resource type="LabelSettings" id="LabelSettings_xqb2a"]
+font_size = 70
+
+[node name="TaskEntry" type="HBoxContainer"]
+custom_minimum_size = Vector2(1411, 137)
+offset_left = -1.0
+offset_top = 1.0
+offset_right = 1410.0
+offset_bottom = 138.0
+scale = Vector2(0.50219, 0.416324)
+size_flags_stretch_ratio = 0.0
+theme_override_constants/separation = 100
+
+[node name="Label3" type="Label" parent="."]
+layout_mode = 2
+text = "100"
+label_settings = SubResource("LabelSettings_6157q")
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 2
+text = "drink water!"
+label_settings = SubResource("LabelSettings_4ut2m")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "you should totally
+drink
+more water!"
+label_settings = SubResource("LabelSettings_xqb2a")
+
+[node name="CheckButton" type="Button" parent="."]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+size_flags_vertical = 4
+icon = ExtResource("1_us7lg")
+icon_alignment = 1
