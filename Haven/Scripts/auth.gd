@@ -5,29 +5,6 @@ Description: Functions to sign up and login on Login Page
 
 extends Control
 
-#var webAPIKey = "AIzaSyC5ySHiHVx4MbVVDYNhINL5gr7ta-_C98g"
-#var signupUrl = "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key="
-#var loginUrl = "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key="
-
-# login / signup function: makes http request with user's credentials
-#func _loginSignup(url: String, email: String, password: String):
-	#var http = $HTTPRequest
-	#var jsonObject = JSON.new()
-	#var body = jsonObject.stringify({'email' : email, 'password' : password})
-	#var headers = ['Content-Type: application/json']
-	#var error = await http.request(url, headers, HTTPClient.METHOD_POST, body)
-
-# function that runs after http request: gets users info or prints error message if credentials are not valid
-#func _on_http_request_request_completed(result, response_code, headers, body):
-	#var response = JSON.parse_string(body.get_string_from_utf8())
-	#if (response_code == 200):
-		#Global.email = response.email
-		#get_tree().change_scene_to_file("res://Scenes/Homepage.tscn")
-	#else:
-		#print(response.error)
-		#$error_message.text = response.error.message
-
-
 func _ready():
 	Firebase.Auth.login_succeeded.connect(on_login_succeeded)
 	Firebase.Auth.signup_succeeded.connect(on_signup_succeeded)
@@ -35,7 +12,10 @@ func _ready():
 	Firebase.Auth.signup_failed.connect(on_signup_failed)
 	
 	if Firebase.Auth.check_auth_file():
+		var auth = Firebase.Auth.auth
+		Global.userID = auth.localid
 		$state.text = "Logged in!!!"
+		await load_data()
 		get_tree().change_scene_to_file("res://Scenes/Homepage.tscn")
 
 
@@ -60,27 +40,30 @@ func _on_login_button_pressed():
 func on_login_succeeded(auth):
 	print(auth)
 	Firebase.Auth.save_auth(auth)
-	get_tree().change_scene_to_file("res://Scenes/Homepage.tscn")
+	Global.userID = auth.localid
 	
 	if auth.localid:
-		var UserFurniture: FirestoreCollection = Firebase.Firestore.collection("UserFurniture")
-		var furniture_task: FirestoreTask = UserFurniture.get_doc(auth.localid)
-		var furniture_finished_task: FirestoreTask = await furniture_task.task_finished
-		Global.furniture_document = furniture_finished_task.document
-		
-		var UserMoney: FirestoreCollection = Firebase.Firestore.collection("UserMoney")
-		var money_task: FirestoreTask = UserMoney.get_doc(auth.localid)
-		var money_finished_task: FirestoreTask = await money_task.task_finished
-		Global.money_document = money_finished_task.document
-		
-		var UserTodo: FirestoreCollection = Firebase.Firestore.collection("UserTodo")
-		var todo_task: FirestoreTask = UserTodo.get_doc(auth.localid)
-		var todo_finished_task: FirestoreTask = await todo_task.task_finished
-		Global.tasks_document = todo_finished_task.document
+		load_data()
+	
+	get_tree().change_scene_to_file("res://Scenes/Homepage.tscn")
 
 
 func on_signup_succeeded(auth):
 	print(auth)
+	Global.userID = auth.localid
+	
+	var UserFurniture: FirestoreCollection = Firebase.Firestore.collection("UserFurniture")
+	var furniture_task: FirestoreTask = UserFurniture.add(Global.userID, Global.UserFurniture)
+	var furniture_doc = await furniture_task.add_document
+	
+	var UserMoney: FirestoreCollection = Firebase.Firestore.collection("UserMoney")
+	var money_task: FirestoreTask = UserMoney.add(Global.userID, Global.UserMoney)
+	var money_doc = await money_task.add_document
+	
+	var UserTodo: FirestoreCollection = Firebase.Firestore.collection("UserTodo")
+	var todo_task: FirestoreTask = UserTodo.add(Global.userID, Global.UserTodo)
+	var todo_doc = await todo_task.add_document
+	
 	Firebase.Auth.save_auth(auth)
 	get_tree().change_scene_to_file("res://Scenes/Homepage.tscn")
 
@@ -95,3 +78,13 @@ func on_signup_failed(error_code, message):
 	print(error_code)
 	print(message)
 	$state.text = message
+
+func load_data():
+	Global.UserFurniture = await Global.get_doc_fields("UserFurniture", Global.userID)
+	print(Global.UserFurniture)
+	
+	Global.UserMoney = await Global.get_doc_fields("UserMoney", Global.userID)
+	print(Global.UserMoney)
+	
+	Global.UserTodo = await Global.get_doc_fields("UserTodo", Global.userID)
+	print(Global.UserTodo)

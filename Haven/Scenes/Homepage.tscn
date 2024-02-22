@@ -38,6 +38,16 @@ offset_bottom = 2470.0
 theme_override_font_sizes/font_size = 50
 text = "log out"
 
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 372.0
+offset_top = 1019.0
+offset_right = 1058.0
+offset_bottom = 1617.0
+theme_override_font_sizes/font_size = 100
+text = "BIG BUTTON"
+
 [connection signal="pressed" from="gacha_button" to="." method="_on_gacha_button_pressed"]
 [connection signal="pressed" from="todo_button" to="." method="_on_todo_button_pressed"]
 [connection signal="pressed" from="logout_button" to="." method="_on_logout_button_pressed"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
