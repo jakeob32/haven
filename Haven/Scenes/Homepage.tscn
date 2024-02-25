@@ -11,43 +11,72 @@ offset_right = 1440.0
 offset_bottom = 2560.0
 script = ExtResource("1_2tlrs")
 
-[node name="gacha_button" type="Button" parent="."]
+[node name="background" type="ColorRect" parent="."]
 layout_mode = 0
-offset_left = 560.0
-offset_top = 2235.0
-offset_right = 810.0
-offset_bottom = 2485.0
-theme_override_font_sizes/font_size = 50
-text = "gacha"
+offset_right = 1438.0
+offset_bottom = 2556.0
+color = Color(0.976471, 0.956863, 0.960784, 1)
 
-[node name="todo_button" type="Button" parent="."]
+[node name="top_bar" type="ColorRect" parent="background"]
 layout_mode = 0
-offset_left = 1109.0
-offset_top = 2253.0
-offset_right = 1359.0
-offset_bottom = 2503.0
-theme_override_font_sizes/font_size = 50
-text = "todo list"
+offset_right = 1438.0
+offset_bottom = 384.0
+color = Color(0.262745, 0.262745, 0.443137, 1)
 
-[node name="logout_button" type="Button" parent="."]
+[node name="logout_button" type="Button" parent="background/top_bar"]
 layout_mode = 0
-offset_left = 77.0
-offset_top = 2220.0
-offset_right = 327.0
-offset_bottom = 2470.0
+offset_left = 70.0
+offset_top = 70.0
+offset_right = 320.0
+offset_bottom = 320.0
 theme_override_font_sizes/font_size = 50
 text = "log out"
 
-[node name="Button" type="Button" parent="."]
+[node name="currency" type="Label" parent="background/top_bar"]
 layout_mode = 0
-offset_left = 443.0
-offset_top = 44.0
-offset_right = 1058.0
-offset_bottom = 444.0
+offset_left = 676.0
+offset_top = 129.0
+offset_right = 1382.0
+offset_bottom = 266.0
 theme_override_font_sizes/font_size = 100
-text = "BIG BUTTON"
+text = "$1000"
+horizontal_alignment = 2
 
-[connection signal="pressed" from="gacha_button" to="." method="_on_gacha_button_pressed"]
-[connection signal="pressed" from="todo_button" to="." method="_on_todo_button_pressed"]
-[connection signal="pressed" from="logout_button" to="." method="_on_logout_button_pressed"]
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[node name="botton_bar" type="ColorRect" parent="background"]
+layout_mode = 0
+offset_top = 2172.0
+offset_right = 1438.0
+offset_bottom = 2556.0
+color = Color(0.262745, 0.262745, 0.443137, 1)
+
+[node name="todo_button" type="Button" parent="background/botton_bar"]
+layout_mode = 0
+offset_left = 917.0
+offset_top = 72.0
+offset_right = 1167.0
+offset_bottom = 322.0
+theme_override_font_sizes/font_size = 50
+text = "todo list"
+
+[node name="gacha_button" type="Button" parent="background/botton_bar"]
+layout_mode = 0
+offset_left = 582.0
+offset_top = 72.0
+offset_right = 832.0
+offset_bottom = 322.0
+theme_override_font_sizes/font_size = 50
+text = "gacha"
+
+[node name="edit_button" type="Button" parent="background/botton_bar"]
+layout_mode = 0
+offset_left = 245.0
+offset_top = 72.0
+offset_right = 495.0
+offset_bottom = 322.0
+theme_override_font_sizes/font_size = 50
+text = "edit"
+
+[connection signal="pressed" from="background/top_bar/logout_button" to="." method="_on_logout_button_pressed"]
+[connection signal="pressed" from="background/botton_bar/todo_button" to="." method="_on_todo_button_pressed"]
+[connection signal="pressed" from="background/botton_bar/gacha_button" to="." method="_on_gacha_button_pressed"]
+[connection signal="pressed" from="background/botton_bar/edit_button" to="." method="_on_gacha_button_pressed"]
