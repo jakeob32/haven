@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dbly6egtxa3c8"]
+[gd_scene load_steps=10 format=3 uid="uid://cfl1ye4ppnoot"]
 
 [ext_resource type="Script" path="res://Scenes/TaskEntry.gd" id="1_o08t0"]
 [ext_resource type="Script" path="res://Scenes/currency_label.gd" id="1_p08ns"]

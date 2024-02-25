@@ -26,7 +26,6 @@ func update_one_task(i: int):
 	return one_task
 	
 func _ready():
-	time_start = Time.get_unix_time_from_system()
 	if (Global.UserTodo["tasks"] == []):
 		import_tasks()
 	print(Global.UserTodo)
