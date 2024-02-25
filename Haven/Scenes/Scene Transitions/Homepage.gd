@@ -18,7 +18,7 @@ func _http_request_completed(result, response_code, headers, body) :
 	
 	var texture = ImageTexture.new()
 	texture.create_from_image(image)
-	$room.texture = texture
+	#$room.texture = texture
 	
 
 

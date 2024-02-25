@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://rro04kr7pol4"]
+[gd_scene load_steps=8 format=3 uid="uid://rro04kr7pol4"]
 
 [ext_resource type="Script" path="res://Scenes/Scene Transitions/Todo List Page.gd" id="1_b5ndw"]
 [ext_resource type="Script" path="res://Scenes/VBoxContainer.gd" id="2_j227w"]
+[ext_resource type="Texture2D" uid="uid://ixpna3lucy8a" path="res://Home_ Cropped.png" id="2_w2nfn"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dp28b"]
 bg_color = Color(0.976471, 0.956863, 0.960784, 1)
@@ -33,10 +34,13 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_dp28b")
 layout_mode = 0
 offset_left = 88.0
 offset_top = 128.0
-offset_right = 344.0
-offset_bottom = 384.0
+offset_right = 925.0
+offset_bottom = 965.0
+scale = Vector2(0.318015, 0.305919)
 theme_override_font_sizes/font_size = 50
-text = "home"
+icon = ExtResource("2_w2nfn")
+flat = true
+icon_alignment = 1
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 0

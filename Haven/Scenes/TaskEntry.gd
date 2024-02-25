@@ -12,7 +12,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if isComplete == true:
-		$CheckButton.texture_normal = load("res://istockphoto-1435212785-612x612 (1).jpg")
+		$CheckButton.texture_normal = load("res://CheckedBox.png")
 		$CheckButton.disabled = true
 		set_process(false)
 
@@ -24,6 +24,6 @@ func _on_check_button_toggled(toggled_on):
 		Global.UserMoney["userID"] = Global.userID
 		Global.UserMoney["currency"] = Global.currency
 		Global.update_doc_fields("UserMoney", Global.userID, Global.UserMoney)
-		$CheckButton.texture_normal = load("res://istockphoto-1435212785-612x612 (1).jpg")
+		$CheckButton.texture_normal = load("res://CheckedBox.png")
 		$CheckButton.disabled = true
 	
