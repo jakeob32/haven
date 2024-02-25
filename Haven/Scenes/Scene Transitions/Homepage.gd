@@ -32,3 +32,7 @@ func _on_logout_button_pressed():
 	Firebase.Auth.logout()
 	get_tree().change_scene_to_file("res://Scenes/Login Page.tscn")
 
+
+
+func _on_edit_button_pressed():
+	pass # Replace with function body.
