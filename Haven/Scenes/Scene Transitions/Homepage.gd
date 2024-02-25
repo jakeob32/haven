@@ -1,6 +1,6 @@
 extends Control
 
-#var furniture_name
+var furniture
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -51,8 +51,7 @@ func _on_button_pressed():
 
 
 func furniture_button_pressed(furniture_name: String):
-	var furniture = await Global.get_doc_fields("Furniture", furniture_name)
-	
+	furniture = await Global.get_doc_fields("Furniture", furniture_name)
 	var http_request = HTTPRequest.new()
 	add_child(http_request)
 	http_request.request_completed.connect(self._furniture_http_request_completed)
@@ -77,16 +76,23 @@ func _furniture_http_request_completed(result, response_code, headers, body):
 	furniture_item.texture = texture
 	
 	# must add_child to a specific layer so they are layered properly
-	# layer 1
-		# carpet, posters, and mirror
-
-	# layer 2
-		# bed, table
-	# layer 3
-		# dresser, chair, cabinet
-	# layer 4
-		# light, plant
+	# layer 1 # carpet, posters, and mirror
+	var layer1_array = ["carpet", "poster", "painting", "round_mirror"]
+	# layer 2 # bed, table
+	var layer2_array = ["bed", "table"]
+	# layer 3 # dresser, chair, cabinet
+	var layer3_array = ["dresser", "chair", "cabinet"]
+	# layer 4 # lamp, plant
+	var layer4_array = ["lamp", "plant", "square_mirror"]
 	
-	$background/room.add_child(furniture_item)
+	# if statement
+	if layer1_array.find(furniture.get("name")):
+		$background/room/layer1.add_child(furniture_item)
+	elif layer2_array.find(furniture.get("name")):
+		$background/room/layer2.add_child(furniture_item)
+	elif layer3_array.find(furniture.get("name")):
+		$background/room/layer3.add_child(furniture_item)
+	elif layer4_array.find(furniture.get("name")):
+		$background/room/layer4.add_child(furniture_item)
 	
 	
