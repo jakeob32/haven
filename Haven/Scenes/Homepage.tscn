@@ -13,10 +13,10 @@ script = ExtResource("1_2tlrs")
 
 [node name="gacha_button" type="Button" parent="."]
 layout_mode = 0
-offset_left = 560.0
-offset_top = 2235.0
-offset_right = 810.0
-offset_bottom = 2485.0
+offset_left = 774.0
+offset_top = 2249.0
+offset_right = 1024.0
+offset_bottom = 2499.0
 theme_override_font_sizes/font_size = 50
 text = "gacha"
 
@@ -31,23 +31,28 @@ text = "todo list"
 
 [node name="logout_button" type="Button" parent="."]
 layout_mode = 0
-offset_left = 77.0
-offset_top = 2220.0
-offset_right = 327.0
-offset_bottom = 2470.0
+offset_left = 70.0
+offset_top = 70.0
+offset_right = 320.0
+offset_bottom = 320.0
 theme_override_font_sizes/font_size = 50
 text = "log out"
 
-[node name="Button" type="Button" parent="."]
+[node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 372.0
-offset_top = 1019.0
-offset_right = 1058.0
-offset_bottom = 1617.0
+offset_left = 676.0
+offset_top = 129.0
+offset_right = 1382.0
+offset_bottom = 266.0
 theme_override_font_sizes/font_size = 100
-text = "BIG BUTTON"
+text = "$1000"
+horizontal_alignment = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1438.0
+offset_bottom = 384.0
 
 [connection signal="pressed" from="gacha_button" to="." method="_on_gacha_button_pressed"]
 [connection signal="pressed" from="todo_button" to="." method="_on_todo_button_pressed"]
 [connection signal="pressed" from="logout_button" to="." method="_on_logout_button_pressed"]
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
