@@ -12,7 +12,6 @@ offset_bottom = 2560.0
 script = ExtResource("1_2tlrs")
 
 [node name="background" type="ColorRect" parent="."]
-visible = false
 layout_mode = 0
 offset_right = 1438.0
 offset_bottom = 2556.0
@@ -44,6 +43,7 @@ text = "$1000"
 horizontal_alignment = 2
 
 [node name="botton_bar" type="ColorRect" parent="background"]
+layout_mode = 0
 offset_top = 2172.0
 offset_right = 1438.0
 offset_bottom = 2556.0
@@ -68,17 +68,13 @@ theme_override_font_sizes/font_size = 50
 text = "gacha"
 
 [node name="edit_button" type="Button" parent="background/botton_bar"]
+layout_mode = 0
 offset_left = 245.0
 offset_top = 72.0
 offset_right = 495.0
 offset_bottom = 322.0
 theme_override_font_sizes/font_size = 50
 text = "edit"
-
-[node name="room" type="TextureRect" parent="."]
-layout_mode = 0
-offset_right = 1438.0
-offset_bottom = 2558.0
 
 [connection signal="pressed" from="background/top_bar/logout_button" to="." method="_on_logout_button_pressed"]
 [connection signal="pressed" from="background/botton_bar/todo_button" to="." method="_on_todo_button_pressed"]
