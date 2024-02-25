@@ -1,9 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://bsoebcitas4tl"]
+[gd_scene load_steps=10 format=3 uid="uid://dbly6egtxa3c8"]
 
 [ext_resource type="Script" path="res://Scenes/TaskEntry.gd" id="1_o08t0"]
 [ext_resource type="Script" path="res://Scenes/currency_label.gd" id="1_p08ns"]
-[ext_resource type="Texture2D" uid="uid://cx41327uti51t" path="res://UncheckedBox.png" id="3_qking"]
-[ext_resource type="Texture2D" uid="uid://ma1pgifq7oro" path="res://CheckedBox.png" id="4_dtbh4"]
+[ext_resource type="Texture2D" path="res://UncheckedBox.png" id="3_qking"]
+[ext_resource type="Texture2D" path="res://CheckedBox.png" id="4_dtbh4"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_6157q"]
 font_size = 50

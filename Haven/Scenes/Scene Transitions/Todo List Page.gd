@@ -1,12 +1,15 @@
 extends Control
 # Called when the node enters the scene tree for the first time.
 var _task_entry_scene = preload("res://Scenes/TaskEntry.tscn")
+
 var one_task = {
 	"currency" : 0,
 	"description" : "",
 	"name" : ""
 }
 func import_tasks():
+	Global.UserTodo["tasks"] = []
+	Global.UserTodo["isComplete"] = []
 	Global.UserTodo["userID"] = Global.userID
 	Global.UserTodo["tasks"].append("do_work")
 	Global.UserTodo["tasks"].append("drink_water")
@@ -23,6 +26,7 @@ func update_one_task(i: int):
 	return one_task
 	
 func _ready():
+	time_start = Time.get_unix_time_from_system()
 	if (Global.UserTodo["tasks"] == []):
 		import_tasks()
 	print(Global.UserTodo)
@@ -43,6 +47,5 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
-
 func _on_home_button_pressed():
 	get_tree().change_scene_to_file("res://Scenes/Homepage.tscn")
