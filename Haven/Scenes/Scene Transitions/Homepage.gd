@@ -1,13 +1,34 @@
 extends Control
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	var background = await Global.get_doc_fields("Furniture", "dorm_room")
+	# create http request
+	var http_request = HTTPRequest.new()
+	add_child(http_request)
+	http_request.request_completed.connect(self._http_request_completed)
+	
+	# perform request
+	var error = http_request.request(background.get("image"))
+	if error != OK:
+		push_error("An error occurred in the HTTP request.")
 
+func _http_request_completed(result, response_code, headers, body):
+	if result != HTTPRequest.RESULT_SUCCESS:
+		push_error("Image couldn't be downloaded")
+	
+	var image = Image.new()
+	var error = image.load_png_from_buffer(body)
+	if error != OK:
+		push_error("could't load image")
+	
+	var texture = ImageTexture.create_from_image(image)
+	var texture_rect = TextureRect.new()
+	add_child(texture_rect)
+	texture_rect.texture = texture
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
 
 
