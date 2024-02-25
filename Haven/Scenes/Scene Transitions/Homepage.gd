@@ -42,8 +42,38 @@ func _on_logout_button_pressed():
 	Firebase.Auth.logout()
 	get_tree().change_scene_to_file("res://Scenes/Login Page.tscn")
 
+
 # testing update_doc_fields()
 func _on_button_pressed():
 	Global.UserFurniture["furniture"].append("abc")
 	Global.update_doc_fields("UserFurniture", Global.userID, Global.UserFurniture)
 
+
+func furniture_button_pressed(furniture_name: String):
+	var furniture = await Global.get_doc_fields("UserFurniture", furniture_name)
+	
+	var http_request = HTTPRequest.new()
+	add_child(http_request)
+	http_request.request_completed.connect(self._furniture_http_request_completed)
+	
+	# perform request
+	var error = http_request.request(furniture.get(furniture_name))
+	if error != OK:
+		push_error("error occurred in the HTTP request.")
+
+
+func _furniture_http_request_completed(result, response_code, headers, body):
+	if result != HTTPRequest.RESULT_SUCCESS:
+		push_error("image couldn't be downloaded")
+	
+	var image = Image.new()
+	var error = image.load_png_from_buffer(body)
+	if error != OK:
+		push_error("could't load image")
+	
+	var texture = ImageTexture.create_from_image(image)
+	var furniture_item = Image.new()
+	furniture_item.texture = texture
+	$background/room.add_child(furniture_item)
+	
+	
