@@ -21,6 +21,18 @@ color = Color(0.976471, 0.956863, 0.960784, 1)
 layout_mode = 1
 anchors_preset = -1
 
+[node name="layer1" type="TextureRect" parent="background/room"]
+layout_mode = 0
+
+[node name="layer2" type="TextureRect" parent="background/room"]
+layout_mode = 0
+
+[node name="layer3" type="TextureRect" parent="background/room"]
+layout_mode = 0
+
+[node name="layer4" type="TextureRect" parent="background/room"]
+layout_mode = 0
+
 [node name="botton_bar" type="ColorRect" parent="background"]
 layout_mode = 0
 offset_top = 2172.0
@@ -80,7 +92,15 @@ theme_override_font_sizes/font_size = 100
 text = "$1000"
 horizontal_alignment = 2
 
+[node name="Button" type="Button" parent="background"]
+layout_mode = 0
+offset_left = 469.0
+offset_top = 190.0
+offset_right = 877.0
+offset_bottom = 396.0
+
 [connection signal="pressed" from="background/botton_bar/todo_button" to="." method="_on_todo_button_pressed"]
 [connection signal="pressed" from="background/botton_bar/gacha_button" to="." method="_on_gacha_button_pressed"]
 [connection signal="pressed" from="background/botton_bar/edit_button" to="." method="_on_gacha_button_pressed"]
 [connection signal="pressed" from="background/top_bar/logout_button" to="." method="_on_logout_button_pressed"]
+[connection signal="pressed" from="background/Button" to="." method="_on_button_pressed"]

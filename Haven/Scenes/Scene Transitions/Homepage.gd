@@ -1,5 +1,7 @@
 extends Control
 
+#var furniture_name
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var background = await Global.get_doc_fields("Furniture", "dorm_room")
@@ -43,21 +45,20 @@ func _on_logout_button_pressed():
 	get_tree().change_scene_to_file("res://Scenes/Login Page.tscn")
 
 
-# testing update_doc_fields()
+# testing
 func _on_button_pressed():
-	Global.UserFurniture["furniture"].append("abc")
-	Global.update_doc_fields("UserFurniture", Global.userID, Global.UserFurniture)
+	furniture_button_pressed("dorm_chair")
 
 
 func furniture_button_pressed(furniture_name: String):
-	var furniture = await Global.get_doc_fields("UserFurniture", furniture_name)
+	var furniture = await Global.get_doc_fields("Furniture", furniture_name)
 	
 	var http_request = HTTPRequest.new()
 	add_child(http_request)
 	http_request.request_completed.connect(self._furniture_http_request_completed)
 	
 	# perform request
-	var error = http_request.request(furniture.get(furniture_name))
+	var error = http_request.request(furniture.get("image"))
 	if error != OK:
 		push_error("error occurred in the HTTP request.")
 
@@ -72,8 +73,20 @@ func _furniture_http_request_completed(result, response_code, headers, body):
 		push_error("could't load image")
 	
 	var texture = ImageTexture.create_from_image(image)
-	var furniture_item = Image.new()
+	var furniture_item = TextureRect.new()
 	furniture_item.texture = texture
+	
+	# must add_child to a specific layer so they are layered properly
+	# layer 1
+		# carpet, posters, and mirror
+
+	# layer 2
+		# bed, table
+	# layer 3
+		# dresser, chair, cabinet
+	# layer 4
+		# light, plant
+	
 	$background/room.add_child(furniture_item)
 	
 	
