@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scenes/Scene Transitions/Todo List Page.gd" id="1_b5ndw"]
 [ext_resource type="Script" path="res://Scenes/VBoxContainer.gd" id="2_j227w"]
-[ext_resource type="Texture2D" uid="uid://ixpna3lucy8a" path="res://Home_ Cropped.png" id="2_w2nfn"]
+[ext_resource type="Texture2D" path="res://Home_ Cropped.png" id="2_w2nfn"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dp28b"]
 bg_color = Color(0.976471, 0.956863, 0.960784, 1)

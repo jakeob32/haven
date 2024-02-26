@@ -1,0 +1,84 @@
+[gd_scene load_steps=10 format=3 uid="uid://cfl1ye4ppnoot"]
+
+[ext_resource type="Script" path="res://Scenes/TaskEntry.gd" id="1_o08t0"]
+[ext_resource type="Script" path="res://Scenes/currency_label.gd" id="1_p08ns"]
+[ext_resource type="Texture2D" uid="uid://cx41327uti51t" path="res://UncheckedBox.png" id="3_qking"]
+[ext_resource type="Texture2D" uid="uid://ma1pgifq7oro" path="res://CheckedBox.png" id="4_dtbh4"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_6157q"]
+font_size = 50
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_4ut2m"]
+font_size = 60
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_xqb2a"]
+font_size = 30
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_88sok"]
+bg_color = Color(0.784314, 0.721569, 0.858824, 1)
+
+[sub_resource type="GDScript" id="GDScript_hpbcp"]
+script/source = "extends TextureButton
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+
+"
+
+[node name="TaskEntry" type="HBoxContainer"]
+custom_minimum_size = Vector2(1411, 137)
+offset_left = 1.0
+offset_top = 3.0
+offset_right = 1412.0
+offset_bottom = 297.0
+scale = Vector2(0.499716, 0.507324)
+size_flags_stretch_ratio = 0.0
+theme_override_constants/separation = 40
+script = ExtResource("1_o08t0")
+
+[node name="currency_label" type="Label" parent="."]
+layout_mode = 2
+text = "100"
+label_settings = SubResource("LabelSettings_6157q")
+script = ExtResource("1_p08ns")
+
+[node name="name_label" type="Label" parent="."]
+layout_mode = 2
+text = "drink water!"
+label_settings = SubResource("LabelSettings_4ut2m")
+
+[node name="description_label" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "you should totally
+drink more water!"
+label_settings = SubResource("LabelSettings_xqb2a")
+visible_characters_behavior = 1
+
+[node name="Panel" type="Panel" parent="description_label"]
+show_behind_parent = true
+layout_mode = 0
+offset_right = 261.0
+offset_bottom = 86.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_88sok")
+
+[node name="CheckButton" type="TextureButton" parent="."]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+size_flags_vertical = 4
+toggle_mode = true
+texture_normal = ExtResource("3_qking")
+texture_pressed = ExtResource("4_dtbh4")
+script = SubResource("GDScript_hpbcp")
+
+[connection signal="toggled" from="CheckButton" to="." method="_on_check_button_toggled"]
