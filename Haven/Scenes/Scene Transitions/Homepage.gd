@@ -42,7 +42,7 @@ func _ready():
 		$background/ColorRect/ScrollContainer/GridContainer.add_child(furniture_button)
 		furniture_button.furniture_name.text = furniture["name"]
 		if (!(furniture["name"] in Global.UserFurniture["furniture"])):
-			furniture_button.disabled = false
+			furniture_button.disabled = true
 		if (furniture["name"] in Global.UserFurniture["placed"]):
 			layer_dict[furniture["name"]].visible = true
 
