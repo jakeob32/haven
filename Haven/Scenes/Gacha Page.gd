@@ -24,6 +24,7 @@ func get_currency():
 	return Global.UserMoney.currency
 	
 func update_currency(NEW : int):
+	Global.currency = NEW
 	Global.UserMoney["currency"] = NEW
 	return NEW
 	
