@@ -7,6 +7,19 @@ extends Control
 
 var userID = ""
 
+# Global Furniture Dictionary
+var FurnitureDict = {
+	0 : "chair",
+	1 : "closet",
+	2 : "lamp",
+	3 : "painting",
+	4 : "poster",
+	5 : "round_mirror",
+	6 : "shelf",
+	7 : "square_mirror",
+	8 : "dorm_table",
+}
+
 # UserFurniture
 var UserFurniture = {
 	"userID" : "",
@@ -42,3 +55,4 @@ func update_doc_fields(COLLECTION_ID: String, DOCUMENT_ID: String, fields: Dicti
 	var collection: FirestoreCollection = Firebase.Firestore.collection(COLLECTION_ID)
 	var up_task: FirestoreTask = collection.update(DOCUMENT_ID, fields)
 	var document = await up_task.update_document
+

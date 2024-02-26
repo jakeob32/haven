@@ -20,4 +20,23 @@ offset_bottom = 332.0
 theme_override_font_sizes/font_size = 50
 text = "Home"
 
+[node name="Gacha Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 562.0
+offset_top = 1526.0
+offset_right = 834.0
+offset_bottom = 1815.0
+theme_override_font_sizes/font_size = 50
+text = "Gacha"
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 990.0
+offset_top = 105.0
+offset_right = 1162.0
+offset_bottom = 277.0
+text = "Give money"
+
 [connection signal="pressed" from="Home Button" to="." method="_on_home_button_pressed"]
+[connection signal="pressed" from="Gacha Button" to="." method="_on_gacha_button_pressed"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
