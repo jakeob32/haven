@@ -4,8 +4,7 @@ var rng = RandomNumberGenerator.new()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
+	currency_label_update(Global.UserMoney.currency)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -13,6 +12,7 @@ func _process(delta):
 
 
 func _on_home_button_pressed():
+	await Global.update_doc_fields("UserMoney", Global.userID, Global.UserMoney)
 	get_tree().change_scene_to_file("res://Scenes/Homepage.tscn")
 
 func give_money():
@@ -21,14 +21,15 @@ func give_money():
 	await Global.update_doc_fields("UserMoney", Global.userID, Global.UserMoney)
 
 func get_currency():
-	var money = await Global.get_doc_fields("UserMoney", Global.userID)
-	return money["currency"]
+	return Global.UserMoney.currency
 	
 func update_currency(NEW : int):
 	Global.UserMoney["currency"] = NEW
-	await Global.update_doc_fields("UserMoney", Global.userID, Global.UserMoney)
 	return NEW
 	
+func currency_label_update(CURRENCY : int):
+	$CanvasLayer3/Currency.set_text("$" + str(CURRENCY))
+
 func has_furniture(RAND : int):
 	if(Global.UserFurniture["furniture"].has(Global.FurnitureDict[RAND])):
 		return true
@@ -36,23 +37,26 @@ func has_furniture(RAND : int):
 		return false
 		
 func roll_gacha():
-	var old = await get_currency()
-	var new = old - 100
-	update_currency(new)
-	var random = rng.randi_range(0, 8)
-	if (!has_furniture(random)):
-		Global.UserFurniture["furniture"].append(Global.FurnitureDict[random])
-		await Global.update_doc_fields("UserFurniture", Global.userID, Global.UserFurniture)
-		print("furniture added")
+	if (get_currency() >= 100):
+		var old = get_currency()
+		var new = old - 100
+		update_currency(new)
+		currency_label_update(Global.UserMoney.currency)
+		var random = rng.randi_range(5, 6)
+		if (!has_furniture(random)):
+			Global.UserFurniture["furniture"].append(Global.FurnitureDict[random])
+			await Global.update_doc_fields("UserFurniture", Global.userID, Global.UserFurniture)
+			print("furniture added")
+			$CanvasLayer/Bottom_Text.set_text("You got a " + Global.FurnitureDict[random] + "!")
+		else:
+			await get_tree().create_timer(1.0).timeout
+			update_currency(old)
+			currency_label_update(old)
+			print("furniture was already there")
+			$CanvasLayer/Bottom_Text.set_text("You already have a " + Global.FurnitureDict[random] + "!")
+			
 	else:
-		update_currency(old)
-		print("furniture was already there")
-		
-
+		$CanvasLayer/Bottom_Text.set_text("You don't have enough money to roll the gacha!")
 
 func _on_gacha_button_pressed():
 	roll_gacha()
-
-
-func _on_button_pressed():
-	give_money()

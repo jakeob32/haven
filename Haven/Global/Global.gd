@@ -9,15 +9,18 @@ var userID = ""
 
 # Global Furniture Dictionary
 var FurnitureDict = {
-	0 : "chair",
-	1 : "closet",
-	2 : "lamp",
-	3 : "painting",
-	4 : "poster",
-	5 : "round_mirror",
-	6 : "shelf",
-	7 : "square_mirror",
-	8 : "dorm_table",
+	0 : "bed",
+	1 : "chair",
+	2 : "closet",
+	3 : "lamp",
+	4 : "painting",
+	5 : "plant",
+	6 : "poster",
+	7 : "round_mirror",
+	8 : "rug",
+	9 : "shelf",
+	10 : "square_mirror",
+	11 : "table",
 }
 
 # UserFurniture

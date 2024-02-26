@@ -11,32 +11,56 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_6a28r")
 
-[node name="Home Button" type="Button" parent="."]
-layout_mode = 0
-offset_left = 93.0
-offset_top = 55.0
-offset_right = 377.0
-offset_bottom = 332.0
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 0
+
+[node name="Bottom_Text" type="RichTextLabel" parent="CanvasLayer"]
+offset_left = 416.0
+offset_top = 1232.0
+offset_right = 1278.0
+offset_bottom = 1388.0
+theme_override_font_sizes/normal_font_size = 50
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer2"]
+offset_right = 1440.0
+offset_bottom = 301.0
+color = Color(0.262745, 0.262745, 0.443137, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="CanvasLayer2"]
+offset_left = 3.0
+offset_top = 2254.0
+offset_right = 1436.0
+offset_bottom = 2564.0
+color = Color(0.262745, 0.262745, 0.443137, 1)
+
+[node name="CanvasLayer3" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="Currency" type="RichTextLabel" parent="CanvasLayer3"]
+offset_left = 1101.0
+offset_top = 104.0
+offset_right = 1581.0
+offset_bottom = 273.0
+theme_override_font_sizes/normal_font_size = 50
+
+[node name="Home Button" type="Button" parent="CanvasLayer3"]
+offset_left = 34.0
+offset_top = 16.0
+offset_right = 318.0
+offset_bottom = 293.0
 theme_override_font_sizes/font_size = 50
 text = "Home"
 
-[node name="Gacha Button" type="Button" parent="."]
-layout_mode = 0
-offset_left = 562.0
-offset_top = 1526.0
-offset_right = 834.0
-offset_bottom = 1815.0
+[node name="Gacha Button" type="Button" parent="CanvasLayer3"]
+offset_left = 586.0
+offset_top = 2301.0
+offset_right = 823.0
+offset_bottom = 2519.0
 theme_override_font_sizes/font_size = 50
 text = "Gacha"
 
-[node name="Button" type="Button" parent="."]
-layout_mode = 0
-offset_left = 990.0
-offset_top = 105.0
-offset_right = 1162.0
-offset_bottom = 277.0
-text = "Give money"
-
-[connection signal="pressed" from="Home Button" to="." method="_on_home_button_pressed"]
-[connection signal="pressed" from="Gacha Button" to="." method="_on_gacha_button_pressed"]
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="ready" from="CanvasLayer3/Currency" to="." method="_on_currency_ready"]
+[connection signal="pressed" from="CanvasLayer3/Home Button" to="." method="_on_home_button_pressed"]
+[connection signal="pressed" from="CanvasLayer3/Gacha Button" to="." method="_on_gacha_button_pressed"]
