@@ -1,6 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://bcbmkw4e7amos"]
+[gd_scene load_steps=14 format=3 uid="uid://bcbmkw4e7amos"]
 
 [ext_resource type="Script" path="res://Scenes/Scene Transitions/Homepage.gd" id="1_2tlrs"]
+[ext_resource type="Texture2D" uid="uid://stbyvf23bne5" path="res://Furniture Images/Rug.png" id="2_bt80m"]
+[ext_resource type="Texture2D" uid="uid://cy714221twd2j" path="res://Furniture Images/Poster.png" id="3_bvm82"]
+[ext_resource type="Texture2D" uid="uid://7u0tlbvjbldq" path="res://Furniture Images/Painting.png" id="4_rx5ls"]
+[ext_resource type="Texture2D" uid="uid://bglbopn61x0ph" path="res://Furniture Images/Round Mirror.png" id="5_h7rxp"]
+[ext_resource type="Texture2D" uid="uid://dxqqvdtcaojue" path="res://Furniture Images/Bed.png" id="6_mfh5l"]
+[ext_resource type="Texture2D" uid="uid://dhhu460ge00os" path="res://Furniture Images/Table.png" id="7_8yl7v"]
+[ext_resource type="Texture2D" uid="uid://1g488s1pj7ui" path="res://Furniture Images/Closet.png" id="8_4pm37"]
+[ext_resource type="Texture2D" uid="uid://b4e2l67n1tbap" path="res://Furniture Images/Chair.png" id="9_n0g5e"]
+[ext_resource type="Texture2D" uid="uid://b1c8bybydwik1" path="res://Furniture Images/Shelf.png" id="10_gsgbw"]
+[ext_resource type="Texture2D" uid="uid://vvo5wa0q7h7n" path="res://Furniture Images/Lamp.png" id="11_50o2r"]
+[ext_resource type="Texture2D" uid="uid://bi1mgpmqk483i" path="res://Furniture Images/Plant.png" id="12_nn2xx"]
+[ext_resource type="Texture2D" uid="uid://dhkkxhjrrq166" path="res://Furniture Images/Square Mirror.png" id="13_8xomf"]
 
 [node name="Home Page" type="Control"]
 layout_mode = 3
@@ -16,6 +28,104 @@ layout_mode = 0
 offset_right = 1438.0
 offset_bottom = 2556.0
 color = Color(0.976471, 0.956863, 0.960784, 1)
+
+[node name="room" type="TextureRect" parent="background"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="parentlayer1" type="TextureRect" parent="background/room"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="layer1" type="TextureRect" parent="background/room/parentlayer1"]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_bt80m")
+
+[node name="layer2" type="TextureRect" parent="background/room/parentlayer1"]
+visible = false
+offset_right = 1440.0
+offset_bottom = 2560.0
+texture = ExtResource("3_bvm82")
+
+[node name="layer3" type="TextureRect" parent="background/room/parentlayer1"]
+visible = false
+offset_right = 1440.0
+offset_bottom = 2560.0
+texture = ExtResource("4_rx5ls")
+
+[node name="layer4" type="TextureRect" parent="background/room/parentlayer1"]
+visible = false
+offset_right = 1440.0
+offset_bottom = 2560.0
+texture = ExtResource("5_h7rxp")
+
+[node name="parentlayer2" type="TextureRect" parent="background/room/parentlayer1"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="layer5" type="TextureRect" parent="background/room/parentlayer1/parentlayer2"]
+visible = false
+offset_right = 1440.0
+offset_bottom = 2560.0
+texture = ExtResource("6_mfh5l")
+
+[node name="layer6" type="TextureRect" parent="background/room/parentlayer1/parentlayer2"]
+visible = false
+offset_right = 1440.0
+offset_bottom = 2560.0
+texture = ExtResource("7_8yl7v")
+
+[node name="parentlayer3" type="TextureRect" parent="background/room/parentlayer1/parentlayer2"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="layer7" type="TextureRect" parent="background/room/parentlayer1/parentlayer2/parentlayer3"]
+visible = false
+offset_right = 1440.0
+offset_bottom = 2560.0
+texture = ExtResource("8_4pm37")
+
+[node name="layer8" type="TextureRect" parent="background/room/parentlayer1/parentlayer2/parentlayer3"]
+visible = false
+offset_right = 1440.0
+offset_bottom = 2560.0
+texture = ExtResource("9_n0g5e")
+
+[node name="layer9" type="TextureRect" parent="background/room/parentlayer1/parentlayer2/parentlayer3"]
+visible = false
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("10_gsgbw")
+
+[node name="parentlayer4" type="TextureRect" parent="background/room/parentlayer1/parentlayer2/parentlayer3"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="layer10" type="TextureRect" parent="background/room/parentlayer1/parentlayer2/parentlayer3/parentlayer4"]
+visible = false
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("11_50o2r")
+
+[node name="layer11" type="TextureRect" parent="background/room/parentlayer1/parentlayer2/parentlayer3/parentlayer4"]
+visible = false
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("12_nn2xx")
+
+[node name="layer12" type="TextureRect" parent="background/room/parentlayer1/parentlayer2/parentlayer3/parentlayer4"]
+visible = false
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("13_8xomf")
 
 [node name="top_bar" type="ColorRect" parent="background"]
 layout_mode = 0
@@ -76,7 +186,48 @@ offset_bottom = 322.0
 theme_override_font_sizes/font_size = 50
 text = "edit"
 
+[node name="ColorRect" type="ColorRect" parent="background"]
+visible = false
+layout_mode = 0
+offset_top = 1705.0
+offset_right = 1440.0
+offset_bottom = 2560.0
+color = Color(0.262745, 0.262745, 0.443137, 1)
+
+[node name="exit_edit_button" type="Button" parent="background/ColorRect"]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 50.0
+offset_right = 200.0
+offset_bottom = 200.0
+theme_override_font_sizes/font_size = 75
+text = "X"
+
+[node name="furniture_label" type="Label" parent="background/ColorRect"]
+layout_mode = 0
+offset_left = 250.0
+offset_top = 50.0
+offset_right = 1245.0
+offset_bottom = 200.0
+theme_override_font_sizes/font_size = 100
+text = "Furniture"
+vertical_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="background/ColorRect"]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 250.0
+offset_right = 1390.0
+offset_bottom = 805.0
+
+[node name="GridContainer" type="GridContainer" parent="background/ColorRect/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 5
+
 [connection signal="pressed" from="background/top_bar/logout_button" to="." method="_on_logout_button_pressed"]
 [connection signal="pressed" from="background/botton_bar/todo_button" to="." method="_on_todo_button_pressed"]
 [connection signal="pressed" from="background/botton_bar/gacha_button" to="." method="_on_gacha_button_pressed"]
-[connection signal="pressed" from="background/botton_bar/edit_button" to="." method="_on_gacha_button_pressed"]
+[connection signal="pressed" from="background/botton_bar/edit_button" to="." method="_on_edit_button_pressed"]
+[connection signal="pressed" from="background/ColorRect/exit_edit_button" to="." method="_on_exit_edit_button_pressed"]
