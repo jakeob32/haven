@@ -76,7 +76,48 @@ offset_bottom = 322.0
 theme_override_font_sizes/font_size = 50
 text = "edit"
 
+[node name="ColorRect" type="ColorRect" parent="background"]
+visible = false
+layout_mode = 0
+offset_top = 1705.0
+offset_right = 1440.0
+offset_bottom = 2560.0
+color = Color(0.262745, 0.262745, 0.443137, 1)
+
+[node name="exit_edit_button" type="Button" parent="background/ColorRect"]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 50.0
+offset_right = 200.0
+offset_bottom = 200.0
+theme_override_font_sizes/font_size = 75
+text = "X"
+
+[node name="furniture_label" type="Label" parent="background/ColorRect"]
+layout_mode = 0
+offset_left = 250.0
+offset_top = 50.0
+offset_right = 1245.0
+offset_bottom = 200.0
+theme_override_font_sizes/font_size = 100
+text = "Furniture"
+vertical_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="background/ColorRect"]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 250.0
+offset_right = 1390.0
+offset_bottom = 805.0
+
+[node name="GridContainer" type="GridContainer" parent="background/ColorRect/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 5
+
 [connection signal="pressed" from="background/top_bar/logout_button" to="." method="_on_logout_button_pressed"]
 [connection signal="pressed" from="background/botton_bar/todo_button" to="." method="_on_todo_button_pressed"]
 [connection signal="pressed" from="background/botton_bar/gacha_button" to="." method="_on_gacha_button_pressed"]
 [connection signal="pressed" from="background/botton_bar/edit_button" to="." method="_on_edit_button_pressed"]
+[connection signal="pressed" from="background/ColorRect/exit_edit_button" to="." method="_on_exit_edit_button_pressed"]

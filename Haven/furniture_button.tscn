@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://klvphgopnukv"]
+
+[ext_resource type="Script" path="res://furniture_button.gd" id="1_5qsml"]
+
+[node name="Button" type="Button"]
+custom_minimum_size = Vector2(250, 250)
+offset_right = 250.0
+offset_bottom = 250.0
+script = ExtResource("1_5qsml")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 250.0
+offset_bottom = 250.0
+
+[node name="furniture_name" type="Label" parent="."]
+layout_mode = 0
+offset_right = 250.0
+offset_bottom = 250.0
+theme_override_font_sizes/font_size = 50
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
