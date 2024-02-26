@@ -55,14 +55,17 @@ func on_signup_succeeded(auth):
 	var UserFurniture: FirestoreCollection = Firebase.Firestore.collection("UserFurniture")
 	var furniture_task: FirestoreTask = UserFurniture.add(Global.userID, Global.UserFurniture)
 	var furniture_doc = await furniture_task.add_document
+	Global.UserFurniture = furniture_doc.doc_fields
 	
 	var UserMoney: FirestoreCollection = Firebase.Firestore.collection("UserMoney")
 	var money_task: FirestoreTask = UserMoney.add(Global.userID, Global.UserMoney)
 	var money_doc = await money_task.add_document
+	Global.UserMoney = money_doc.doc_fields
 	
 	var UserTodo: FirestoreCollection = Firebase.Firestore.collection("UserTodo")
 	var todo_task: FirestoreTask = UserTodo.add(Global.userID, Global.UserTodo)
 	var todo_doc = await todo_task.add_document
+	Global.UserTodo = todo_doc.doc_fields
 	
 	Firebase.Auth.save_auth(auth)
 	get_tree().change_scene_to_file("res://Scenes/Homepage.tscn")
