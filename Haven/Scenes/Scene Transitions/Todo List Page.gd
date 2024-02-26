@@ -7,6 +7,7 @@ var one_task = {
 	"description" : "",
 	"name" : ""
 }
+
 func import_tasks():
 	Global.UserTodo["tasks"] = []
 	Global.UserTodo["isComplete"] = []
