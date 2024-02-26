@@ -13,7 +13,12 @@ func _ready():
 	# perform request
 	var error = http_request.request(background.get("image"))
 	if error != OK:
-		push_error("error occurred in the HTTP request.")
+		push_error("error occurred in the HTTP request")
+		
+	var furniture_doc_names = ["dorm_bed", "dorm_chair", "dorm_closet", "dorm_lamp", "dorm_painting", "dorm_plant", "dorm_poster", "dorm_round_mirror", "dorm_rug", "dorm_shelf", "dorm_square_mirror", "dorm_table"]
+	for i in range(len(furniture_doc_names)):
+		furniture_button_pressed(furniture_doc_names[i])
+
 
 func _http_request_completed(result, response_code, headers, body):
 	if result != HTTPRequest.RESULT_SUCCESS:
@@ -26,6 +31,7 @@ func _http_request_completed(result, response_code, headers, body):
 	
 	var texture = ImageTexture.create_from_image(image)
 	$background/room.texture = texture
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
@@ -69,21 +75,21 @@ func _furniture_http_request_completed(result, response_code, headers, body):
 	var image = Image.new()
 	var error = image.load_png_from_buffer(body)
 	if error != OK:
-		push_error("could't load image")
+		push_error("couldn't load image")
 
 	var layer_dict = {
-		"carpet": $background/room/layer1,
+		"rug": $background/room/layer1,
 		"poster": $background/room/layer2,
 		"painting": $background/room/layer3,
-		"round_mirror": $background/room/layer4,
-		"bed": $background/room/layer5,
+		"round mirror": $background/room/layer4,
+		"bed": $background/room/layer4/layer5,
 		"table": $background/room/layer4/layer6,
-		"dresser": $background/room/layer4/layer6/layer7, 
+		"closet": $background/room/layer4/layer6/layer7, 
 		"chair": $background/room/layer4/layer6/layer8, 
 		"shelf": $background/room/layer4/layer6/layer9,
 		"lamp": $background/room/layer4/layer6/layer9/layer10, 
 		"plant": $background/room/layer4/layer6/layer9/layer11, 
-		"square_mirror": $background/room/layer4/layer6/layer9/layer12,
+		"square mirror": $background/room/layer4/layer6/layer9/layer12,
 	}
 
 	var texture = ImageTexture.create_from_image(image)
