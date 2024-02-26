@@ -70,29 +70,26 @@ func _furniture_http_request_completed(result, response_code, headers, body):
 	var error = image.load_png_from_buffer(body)
 	if error != OK:
 		push_error("could't load image")
-	
+
+	var layer_dict = {
+		"carpet": $background/room/layer1,
+		"poster": $background/room/layer2,
+		"painting": $background/room/layer3,
+		"round_mirror": $background/room/layer4,
+		"bed": $background/room/layer5,
+		"table": $background/room/layer4/layer6,
+		"dresser": $background/room/layer4/layer6/layer7, 
+		"chair": $background/room/layer4/layer6/layer8, 
+		"shelf": $background/room/layer4/layer6/layer9,
+		"lamp": $background/room/layer4/layer6/layer9/layer10, 
+		"plant": $background/room/layer4/layer6/layer9/layer11, 
+		"square_mirror": $background/room/layer4/layer6/layer9/layer12,
+	}
+
 	var texture = ImageTexture.create_from_image(image)
-	var furniture_item = TextureRect.new()
-	furniture_item.texture = texture
-	
-	# must add_child to a specific layer so they are layered properly
-	# layer 1 # carpet, posters, and mirror
-	var layer1_array = ["carpet", "poster", "painting", "round_mirror"]
-	# layer 2 # bed, table
-	var layer2_array = ["bed", "table"]
-	# layer 3 # dresser, chair, cabinet
-	var layer3_array = ["dresser", "chair", "cabinet"]
-	# layer 4 # lamp, plant
-	var layer4_array = ["lamp", "plant", "square_mirror"]
-	
-	# if statement
-	if layer1_array.find(furniture.get("name")):
-		$background/room/layer1.add_child(furniture_item)
-	elif layer2_array.find(furniture.get("name")):
-		$background/room/layer2.add_child(furniture_item)
-	elif layer3_array.find(furniture.get("name")):
-		$background/room/layer3.add_child(furniture_item)
-	elif layer4_array.find(furniture.get("name")):
-		$background/room/layer4.add_child(furniture_item)
-	
-	
+	var target = layer_dict[furniture.get("name")]
+	target.texture = texture
+
+
+
+

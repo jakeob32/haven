@@ -33,6 +33,30 @@ layout_mode = 0
 [node name="layer4" type="TextureRect" parent="background/room"]
 layout_mode = 0
 
+[node name="layer5" type="TextureRect" parent="background/room/layer4"]
+layout_mode = 0
+
+[node name="layer6" type="TextureRect" parent="background/room/layer4"]
+layout_mode = 0
+
+[node name="layer7" type="TextureRect" parent="background/room/layer4/layer6"]
+layout_mode = 0
+
+[node name="layer8" type="TextureRect" parent="background/room/layer4/layer6"]
+layout_mode = 0
+
+[node name="layer9" type="TextureRect" parent="background/room/layer4/layer6"]
+layout_mode = 0
+
+[node name="layer10" type="TextureRect" parent="background/room/layer4/layer6/layer9"]
+layout_mode = 0
+
+[node name="layer11" type="TextureRect" parent="background/room/layer4/layer6/layer9"]
+layout_mode = 0
+
+[node name="layer12" type="TextureRect" parent="background/room/layer4/layer6/layer9"]
+layout_mode = 0
+
 [node name="botton_bar" type="ColorRect" parent="background"]
 layout_mode = 0
 offset_top = 2172.0
