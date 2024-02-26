@@ -42,7 +42,7 @@ func roll_gacha():
 		var new = old - 100
 		update_currency(new)
 		currency_label_update(Global.UserMoney.currency)
-		var random = rng.randi_range(5, 6)
+		var random = rng.randi_range(0, 11)
 		if (!has_furniture(random)):
 			Global.UserFurniture["furniture"].append(Global.FurnitureDict[random])
 			await Global.update_doc_fields("UserFurniture", Global.userID, Global.UserFurniture)
