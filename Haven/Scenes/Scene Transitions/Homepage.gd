@@ -1,7 +1,8 @@
 extends Control
 var furniture_button_scene = preload("res://furniture_button.tscn")
-var furniture_doc_names = ["dorm_chair", "dorm_closet", "dorm_lamp", "dorm_painting", "dorm_poster", 
-							"dorm_round_mirror", "dorm_shelf", "dorm_square_mirror", "dorm_table"]
+var furniture_doc_names = ["dorm_bed", "dorm_chair", "dorm_closet", "dorm_lamp", "dorm_painting", 
+						"dorm_plant", "dorm_poster", "dorm_round_mirror", "dorm_rug", "dorm_shelf", 
+						"dorm_square_mirror", "dorm_table"]
 var furniture
 
 # Called when the node enters the scene tree for the first time.
