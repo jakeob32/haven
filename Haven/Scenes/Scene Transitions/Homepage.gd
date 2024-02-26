@@ -14,6 +14,8 @@ func _ready():
 		print(furniture["name"])
 		$background/ColorRect/ScrollContainer/GridContainer.add_child(furniture_button)
 		furniture_button.furniture_name.text = furniture["name"]
+		#if (!(furniture["name"] in Global.UserFurniture["furniture"])):
+			#furniture_button.disabled = true
 
 func _on_gacha_button_pressed():
 	get_tree().change_scene_to_file("res://Scenes/Gacha Page.tscn");
